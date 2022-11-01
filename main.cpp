@@ -46,6 +46,7 @@ int main() {
             case 'z':
                 system("cls");
                 selectedGroup = select_group(group);
+                cout<<selectedGroup;
                 if(selectedGroup != "!!!"){
                     GroupGui(selectedGroup);
                 }
