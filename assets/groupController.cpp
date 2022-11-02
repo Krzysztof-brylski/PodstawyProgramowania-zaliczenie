@@ -20,7 +20,12 @@ void fillGroups(groupNames *groupNames,string* groups,int size){
     groupNames->size=size;
 }
 
-
+/**
+ * adding new group form
+ * @param name
+ * @param msg
+ * @return
+ */
 bool add_group(string name,string &msg){
     if(lineExist("config/groupsNames.txt",name)){
         msg="grupa o podanej nazwie juz istnieje";
@@ -44,6 +49,11 @@ bool add_group(string name,string &msg){
     file.close();
     return false;
 }
+/**
+ * get registered dates for specified group
+ * @param groupName
+ * @return groupDates data structure
+ */
 groupDates* get_dates(string groupName){
     fstream file;
     file.open("../db/config/dates/"+groupName+".txt");
@@ -67,16 +77,21 @@ groupDates* get_dates(string groupName){
     return dates;
 
 }
+/**
+ * draw all registered dates
+ * @param dates
+ */
 void draw_dates(groupDates* dates){
-
 
     cout<<"Utworzone listy obecnosci:"<<endl;
     for(int i=0;i<dates->size;i++){
         cout<<(i+1)<<" -> "<<dates->groupDates[i]<<endl;
     }
 }
-
-
+/**
+ * get all registered groups
+ * @return groupNames data structure
+ */
 groupNames* get_all_groups(){
     fstream file;
     string path="../db/config/groupsNames.txt";
@@ -91,6 +106,10 @@ groupNames* get_all_groups(){
     fillGroups(group,lines, count);
     return group;
 }
+/**
+ * draw all registered groups
+ * @param group
+ */
 void draw_groups(groupNames* group){
     cout<<"Lista utworzonych grup:"<<endl;
 
@@ -98,8 +117,11 @@ void draw_groups(groupNames* group){
         cout<<(i+1)<<" -> "<<group->groups[i]<<endl;
     }
 }
-
-
+/**
+ * select group form
+ * @param group
+ * @return selectet group name
+ */
 string select_group(groupNames* group){
     draw_groups(group);
     int select;
@@ -112,9 +134,4 @@ string select_group(groupNames* group){
     }
     cout<<"Nie wybrano zadnej grupy"<<endl;
     return "!!!";
-}
-
-bool delete_group(string name,string &msg){
-
-    return false;
 }

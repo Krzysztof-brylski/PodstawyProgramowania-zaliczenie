@@ -1,10 +1,17 @@
 #include <iostream>
 #include "../groupController.cpp"
 #pragma once
+/**
+ * draw help
+ */
 void drawGroupHelp(){
     cout<<"Dostepne akcje: s -> Sprawdz obenosci. z -> Zobacz listy. l -> Lista studentow. d -> Dodaj studenta  w-> Wroc."<<endl;
 }
-
+/**
+ * check presence list gui
+ * @param selected name of selected group
+ * @param studentList list of students from selected group
+ */
 void checkPresenceList(string selected, studentList* studentList){
 
     string date;
@@ -26,7 +33,9 @@ void checkPresenceList(string selected, studentList* studentList){
     }
 
 }
-
+/**
+ * add group form
+ */
 void addGroupGui(){
     string name, msg;
     cout<<"Podaj nazwe grupy: "<<endl;
@@ -35,6 +44,10 @@ void addGroupGui(){
     cout<<msg<<endl;
 
 }
+/**
+ * add student form
+ * @param selected group name
+ */
 void addStudentGui(string selected){
     int indexNumber;
     string name,surname;
@@ -50,7 +63,11 @@ void addStudentGui(string selected){
         cout<<"Student o podanych danych juz istnieje"<<endl;
     }
 }
-
+/**
+ * show presence list for selected group gui
+ * @param selected
+ * @param dates
+ */
 void ShowList(string selected, groupDates* dates){
     if(dates->size == 0){
         cout<<"Nie zostaly jeszcze utworzone listy obecnosci."<<endl;
@@ -77,9 +94,10 @@ void ShowList(string selected, groupDates* dates){
     cout<<"Prosze wybrac istniejaca liste"<<endl;
 }
 
-
-
-
+/**
+ * main loop for group actions
+ * @param selected
+ */
 void GroupGui(string selected){
     system("cls");
     cout<<"Wybrana grupa: "<<selected<<endl;

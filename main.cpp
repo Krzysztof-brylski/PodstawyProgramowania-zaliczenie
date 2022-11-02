@@ -9,13 +9,12 @@ using namespace std;
 
 char input;
 bool endProgram= false;
-static const string sys = "win";
-
+//draw help
 void drawHelp(){
     cout<<"Dostepne akcje: d -> Dodaj grupe. l -> Lista grup. z -> Wybierz grupe. w-> Wyjdz z programu."<<endl;
 }
 
-
+// main loop
 int main() {
     cout<<"Potezny sprawdzacz obecnosci"<<endl;
     cout<<"Autor: Krzysztof Brylski (272490) ISA sem1"<<endl;
@@ -62,6 +61,5 @@ int main() {
         }
         cin.clear();
     }
-
     delete group;
 }

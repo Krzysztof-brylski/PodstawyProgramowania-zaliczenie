@@ -2,18 +2,26 @@
 #pragma once
 
 /**
- *  build new return array of listRow's
- * @param int size
- * @return listRow*
+ * presence list data structure
+ * listRow data structure pointer
+ * string date
+ * string name (groupName)
+ * int size
  */
-
 struct List{
     listRow* listRow= nullptr;
     string date="00-00-0000";
     string name="";
     int size=0;
 };
-
+/**
+ * constructor for presence list data structure
+ * @param listRow
+ * @param groupName
+ * @param date
+ * @param size
+ * @return
+ */
 List* createList(listRow* listRow,string groupName, string date,int size){
     List* list = new List;
     list->listRow=listRow;
@@ -22,6 +30,10 @@ List* createList(listRow* listRow,string groupName, string date,int size){
     list->size=size;
     return list;
 }
+/**
+ * checking Presence list form
+ * @param l1
+ */
 void fillPresenceList(List* l1){
 
     for(int i=0;i<l1->size;i++){
@@ -34,10 +46,14 @@ void fillPresenceList(List* l1){
         cin>>status;
         l1->listRow[i].present = status;
         cout<<"obecnosci studenta zapisana"<<endl;
-        cout<<  l1->listRow->present<<endl;
     }
 }
-
+/**
+ * reading list from file and saving in to memory
+ * @param group
+ * @param date
+ * @return
+ */
 List* readListFromFile(string group,string date){
     string fileName=group+"_"+date;
     fstream file;
@@ -60,7 +76,10 @@ List* readListFromFile(string group,string date){
     file.close();
     return createList(listRows,group,date,size);
 }
-
+/**
+ * saving list to file
+ * @param l1
+ */
 void saveListToFile(List* l1){
     string fileName=l1->name+"_"+l1->date;
     fstream file;
@@ -75,15 +94,13 @@ void saveListToFile(List* l1){
     }
     file.close();
 }
-
+/**
+ * drawing data from list data structure
+ * @param l1
+ */
 void drawList(List *l1){
     for(int i=0;i<l1->size;i++) {
         drawRow(l1->listRow[i]);
     }
 }
-void destroyList(List *list){
-    delete list->listRow;
-    delete list;
-}
-
 

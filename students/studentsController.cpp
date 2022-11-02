@@ -4,6 +4,11 @@
 #pragma once
 
 const string dir = "../";
+/**
+ *  Add student to the group
+ * @param s1 student data structure
+ * @param groupName group name
+ */
 
 void add_student(student &s1,string groupName){
     fstream file;
@@ -22,6 +27,15 @@ void add_student(student &s1,string groupName){
     }
     file.close();
 }
+/**
+ *  check if given student exist in group,
+ *  if bool validation is true, check only for same index numbers
+ * @param s1
+ * @param groupName
+ * @param validation
+ * @param validation
+ * @return true if exist | false if not exist
+ */
 bool student_exist(student &s1,string groupName, bool validation = false){
     fstream file;
     file.open(dir+"db/groups/"+groupName+".txt");
@@ -45,7 +59,11 @@ bool student_exist(student &s1,string groupName, bool validation = false){
     file.close();
     return false;
 }
-
+/**
+ * load all students in specified list in to the memory
+ * @param groupName
+ * @return studentList data structure
+ */
 
 studentList* get_students(string groupName){
     fstream file;
@@ -57,8 +75,8 @@ studentList* get_students(string groupName){
         student* studentArr = new student[size];
         //allocate tem variables
         int* TempIndex = new int;
-        string* TempName=new  string;
-        string* TempSurname=new string;
+        string* TempName = new string;
+        string* TempSurname = new string;
         for(int i=0;i<size;i++){
             // writing from file to temp vars
             file>>*TempIndex;
@@ -78,9 +96,14 @@ studentList* get_students(string groupName){
     }
     //if found nothing return null ptr
     file.close();
-    return nullptr;
+    return new studentList;
 }
-
+/**
+ * return selected user from group
+ * @param groupName
+ * @param id
+ * @return student data structure
+ */
 student get_student(string groupName, int id){
     fstream file;
     file.open(dir+"db/groups/"+groupName+".txt",ios::in);
@@ -95,17 +118,12 @@ student get_student(string groupName, int id){
         string* TempLine = new string;
         for(int i=0;i<size;i++){
             if(i == id){
-                // temp vars for index name and surname
-
-
                 // writing from file to temp vars
                 file>>*TempIndex;
                 file>>*TempName;
                 file>>*TempSurname;
                 fillStudent(s1,*TempIndex,*TempName,*TempSurname);
-
             }
-
             getline(file,*TempLine);
             continue;
         }

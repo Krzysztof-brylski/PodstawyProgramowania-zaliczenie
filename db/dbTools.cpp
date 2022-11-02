@@ -3,7 +3,11 @@
 
 using namespace std;
 
-
+/**
+ * counting not empty lines in a file
+ * @param file
+ * @return
+ */
 int countLines(fstream &file){
     int count=0;
     string* temp = new string;
@@ -18,7 +22,12 @@ int countLines(fstream &file){
     delete temp;
     return count;
 }
-
+/**
+ * checking if line exist in specified file
+ * @param where
+ * @param value
+ * @return
+ */
 bool lineExist(string where, string value){
     fstream file;
     file.open("../db/"+where,ios::in);
@@ -36,7 +45,12 @@ bool lineExist(string where, string value){
     delete temp;
     return false;
 }
-
+/**
+ * register groupName in group db
+ * @param type
+ * @param name
+ * @return
+ */
 bool registerGroup(string type,string name){
     fstream file;
     fstream file2;
@@ -63,6 +77,12 @@ bool registerGroup(string type,string name){
     file2.close();
     return false;
 }
+/**
+ * register date for specified  group
+ * @param date
+ * @param groupName
+ * @return
+ */
 bool registerDate(string date,string groupName){
     string path="../db/config/dates/"+groupName+".txt";
     fstream file;
@@ -83,6 +103,11 @@ bool registerDate(string date,string groupName){
     file.close();
     return false;
 }
+/**
+ * insert date into group-dates db for specified group
+ * @param date
+ * @param groupName
+ */
 void insertDate(string date,string groupName){
     string path="../db/config/dates/"+groupName+".txt";
     fstream file;
@@ -98,7 +123,12 @@ void insertDate(string date,string groupName){
     }
     file.close();
 }
-
+/**
+ * check if date exist in specified group-dates db
+ * @param date
+ * @param groupName
+ * @return
+ */
 bool dateExist(string date,string groupName){
     string fileName="../db/config/dates/"+groupName+".txt";
     fstream file;

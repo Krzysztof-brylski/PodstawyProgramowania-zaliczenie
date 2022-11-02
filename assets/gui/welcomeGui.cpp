@@ -3,6 +3,9 @@
 #pragma once
 
 using namespace std;
+/**
+ * welcome gui
+ */
 void welcome(){
     string start, msg;
     string groupName;
