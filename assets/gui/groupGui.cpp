@@ -1,4 +1,5 @@
 #include <iostream>
+#include "clear.cpp"
 #include "../groupController.cpp"
 #pragma once
 /**
@@ -79,7 +80,7 @@ void ShowList(string selected, groupDates* dates){
     cin>>select;
     if(!cin.fail()){
         if(select >0 and select <= dates->size){
-            system("cls");
+            clear();
             string date = dates->groupDates[select-1];
             List* list = readListFromFile(selected,date);
             cout<<"Lista obecnosci grupy: "<<list->name<<" z dnia:"<<list->date<<endl;
@@ -99,7 +100,7 @@ void ShowList(string selected, groupDates* dates){
  * @param selected
  */
 void GroupGui(string selected){
-    system("cls");
+    clear();
     cout<<"Wybrana grupa: "<<selected<<endl;
     studentList* studentList;
     groupDates* dates;
@@ -114,22 +115,22 @@ void GroupGui(string selected){
 
         switch (input) {
             case 's':
-                system("cls");
+                clear();
                 checkPresenceList(selected,studentList);
                 drawGroupHelp();
             break;
             case 'd':
-                system("cls");
+                clear();
                 addStudentGui(selected);
                 drawGroupHelp();
             break;
             case 'l':
-                system("cls");
+                clear();
                 drawStudentList(*studentList);
                 drawGroupHelp();
             break;
             case 'z':
-                system("cls");
+                clear();
                 ShowList(selected,dates);
                 drawGroupHelp();
             break;
@@ -137,7 +138,7 @@ void GroupGui(string selected){
                 drawGroupHelp();
             break;
             case 'w':
-                system("cls");
+                clear();
                 back = true;
             break;
 

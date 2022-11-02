@@ -1,5 +1,6 @@
 #include <iostream>
 #include "groupGui.cpp"
+#include "clear.cpp"
 #pragma once
 
 using namespace std;
@@ -17,13 +18,14 @@ void welcome(){
         cin>>start;
         cout<<"Musisz wcisnac y aby zaczac!"<<endl;
     } while (start =="n" or start=="N");
-    system("cls");
+    clear();
     cout<<"Swietnie a wiec zaczynamy!"<<endl;
     cout<<"Podaj nazwe twojej pierwszej grupy: "<<endl;
     do{
         cin>>groupName;
         cout<<msg<<endl;
     }while(!add_group(groupName,msg));
+    clear();
     cout<<msg<<endl;
     cout<<"Teraz mozesz zaczac prace z programem."<<endl;
     cout<<"Powodzenia :)"<<endl;

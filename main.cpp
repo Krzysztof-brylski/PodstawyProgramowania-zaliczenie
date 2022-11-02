@@ -1,14 +1,15 @@
 #include "assets/gui/groupGui.cpp"
 #include "assets/gui/welcomeGui.cpp"
+#include "assets/gui/clear.cpp"
 #include <iostream>
 #include <fstream>
 using namespace std;
 
 
-
-
 char input;
 bool endProgram= false;
+
+
 //draw help
 void drawHelp(){
     cout<<"Dostepne akcje: d -> Dodaj grupe. l -> Lista grup. z -> Wybierz grupe. w-> Wyjdz z programu."<<endl;
@@ -34,16 +35,16 @@ int main() {
                 drawHelp();
             break;
             case 'd':
-                system("cls");
+                clear();
                 addGroupGui();
             break;
             case 'l':
-                system("cls");
+                clear();
                 draw_groups(group);
                 drawHelp();
             break;
             case 'z':
-                system("cls");
+                clear();
                 selectedGroup = select_group(group);
                 cout<<selectedGroup;
                 if(selectedGroup != "!!!"){
