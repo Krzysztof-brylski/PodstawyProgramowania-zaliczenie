@@ -20,8 +20,8 @@ struct listRow{
  * @param student
  * @param present
  */
-void fillRow(listRow* l1, student &student,bool present){
-    l1->student=student;
+void fillRow(listRow* l1, student &s1,bool present){
+    l1->student=s1;
 	l1->present = present;
 }
 /**

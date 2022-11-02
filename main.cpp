@@ -31,12 +31,12 @@ int main() {
         cin>>input;
         switch (input) {
             case 'h':
-
                 drawHelp();
             break;
             case 'd':
                 clear();
                 addGroupGui();
+                drawHelp();
             break;
             case 'l':
                 clear();

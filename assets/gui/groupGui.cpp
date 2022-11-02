@@ -14,7 +14,10 @@ void drawGroupHelp(){
  * @param studentList list of students from selected group
  */
 void checkPresenceList(string selected, studentList* studentList){
-
+    if(studentList->size == 0){
+        cout<<"Prosze dodac studentow do grupy"<<endl;
+        return;
+    }
     string date;
     cout<<"Podaj date: (dd-mm-yyyy)"<<endl;
     cin>>date;

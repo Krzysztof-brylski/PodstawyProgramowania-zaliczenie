@@ -38,7 +38,7 @@ void fillPresenceList(List* l1){
 
     for(int i=0;i<l1->size;i++){
         bool status;
-        cout<<"Podaj status obecnosci studenta: "<<endl;
+        cout<<"Podaj status obecnosci studenta (0,1): "<<endl;
         cout<<l1->listRow[i].student.indexNumber<<"  ";
         cout<<l1->listRow[i].student.name<<"  ";
         cout<<l1->listRow[i].student.surname<<"   ";

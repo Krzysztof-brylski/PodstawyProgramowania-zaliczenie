@@ -13,7 +13,7 @@ void welcome(){
     cout<<"Witamy w programie do sprawdzania obecnosci!"<<endl;
     cout<<"Aby zaczac prace z programem nalezy utworzyc grupe,"
           "\na nastepnie dodac do niej dane studentow takie jak: nr. indeksu, imie i nazwisko."<<endl;
-    cout<<"Jestes gotowy/a aby zaczac (y/n)"<<endl;
+    cout<<"Jestes gotowy/a aby zaczac? (y/n)"<<endl;
     do{
         cin>>start;
         cout<<"Musisz wcisnac y aby zaczac!"<<endl;
